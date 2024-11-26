@@ -163,6 +163,6 @@ export type FormValues = {
   publications?: {
     name: string;
     date: Date;
-    link?: string;
+    link?: string | null;
   }[];
 };

@@ -296,7 +296,7 @@ export default function ReviewDetails() {
                       <label className="block text-sm font-medium text-gray-700">Link</label>
                       <input
                         type="text"
-                        value={publication.link}
+                        value={publication.link ?? ""}
                         disabled
                         className="w-full rounded-md border border-input p-2 text-sm outline-input"
                       />

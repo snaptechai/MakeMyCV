@@ -133,12 +133,7 @@ const formSchema = z.object({
         required_error: "Please select a date and time",
         invalid_type_error: "That's not a date!",
       }),
-      link: z
-        .string()
-        .url({
-          message: "Please enter a valid URL",
-        })
-        .optional(),
+      link: z.string().optional().nullable(),
     }),
   ),
 });
@@ -852,7 +847,7 @@ export default function EditDetails() {
                         <FormItem>
                           <FormLabel>Link</FormLabel>
                           <FormControl>
-                            <Input {...field} placeholder="https://" />
+                            <Input {...field} value={field.value ?? ""} placeholder="https://" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

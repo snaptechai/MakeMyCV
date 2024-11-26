@@ -61,6 +61,10 @@ export default function Step1() {
               publications: e.extracted_information.publications,
               career_level: e.career_level,
               price: e.price,
+              first_name: e.extracted_information.first_name,
+              last_name: e.extracted_information.last_name,
+              email: e.extracted_information.email,
+              mobile: e.extracted_information.mobile,
             });
             setError(null);
           }}

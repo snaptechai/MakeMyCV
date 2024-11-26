@@ -12,6 +12,10 @@ import { getCareerLevel } from "@/server/actions/get-career-level";
 // Dates are not actually Date objects, but strings in the format "YYYY-MM-DD", make sure to parse them if you need to use them as Date objects.
 type ChatGptResponseContentType = {
   is_valid_cv: boolean;
+  first_name: string;
+  last_name: string;
+  email: string;
+  mobile: string;
   employment_history: {
     company_name: string;
     position: string;
@@ -110,15 +114,19 @@ export async function uploadResume(formData: FormData) {
         messages: [
           {
             role: "system",
-            content: `Extract the following information from the resume text: Employment History, Education, Achievements, Certifications, Publications.
+            content: `Extract the following information from the resume text: Personal Information, Employment History, Education, Achievements, Certifications, Publications.
                 The response should follow this format:
                 {
                 "is_valid_cv": "Boolean",
+                "first_name": "String",
+                "last_name": "String",
+                "email": "String",
+                "mobile": "String (only include if it's a Sri Lankan number, format as 9 digits without any spaces or special characters. Example: 777777777. For numbers starting with +94 or 0, remove those prefixes. If not a valid Sri Lankan number, return null)",
                 "employment_history": [
                 {
                 "company_name": "String",
                 "position": "String",
-                "description": "String",
+                "description": "String or null (only include description if explicitly provided in resume)",
                 "start_date": "YYYY-MM-DD",
                 "end_date": "YYYY-MM-DD",
                 "currently_working": "Boolean"
@@ -153,11 +161,11 @@ export async function uploadResume(formData: FormData) {
                 }
                 ]
                 }
-                If any section is not present, return an empty array for that section. If any field within a section is not present, return that field with null. And replace "N/A" with null. IF YOU THINK THIS IS NOT A VALID CV/RESUME, SET is_valid_cv TO false.`,
+                If any section is not present, return an empty array for that section. If any field is not present or cannot be determined, return that field as null. And replace "N/A" with null. Set the description field to null if no clear description/responsibilities are provided in the resume. IF YOU THINK THIS IS NOT A VALID CV/RESUME, SET is_valid_cv TO false.`,
           },
           {
             role: "user",
-            content: `Resume Text:\n${resumeText}\n\nJSON Format:\n{"is_valid_cv": "Boolean", "employment_history": [],"education": [],"achievements": [],"certifications": [],"publications": []}`,
+            content: `Resume Text:\n${resumeText}\n\nJSON Format:\n{"is_valid_cv": "Boolean", "first_name": null, "last_name": null, "email": null, "mobile": null, "employment_history": [],"education": [],"achievements": [],"certifications": [],"publications": []}`,
           },
         ],
         temperature: 0.8,

@@ -57,7 +57,7 @@ const resumePaths = [
   },
   {
     step: 2,
-    title: "Edit Resume",
+    title: "Enter Your Information",
   },
   {
     step: 3,

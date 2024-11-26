@@ -27,14 +27,15 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     const [results, setResults] = useState<SearchResult[]>([]);
     const [showResults, setShowResults] = useState(false);
     const [selectedResult, setSelectedResult] = useState<string | number>("");
+    const [userInteracted, setUserInteracted] = useState(false);
 
     const handleSearch = useCallback(
       debounce(async (term: string) => {
         const searchResults = await searchFunction(term);
         setResults(searchResults);
-        setShowResults(true);
+        setShowResults(userInteracted);
       }, 300),
-      [searchFunction],
+      [searchFunction, userInteracted],
     );
 
     useEffect(() => {
@@ -52,6 +53,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
       } as React.ChangeEvent<HTMLInputElement>;
       onChange?.(syntheticEvent);
       setShowResults(false);
+      setUserInteracted(false);
     };
 
     return (
@@ -65,9 +67,12 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
           ref={ref}
           {...props}
           value={value}
-          onChange={(e) => onChange?.(e)}
+          onChange={(e) => {
+            setUserInteracted(true);
+            onChange?.(e);
+          }}
         />
-        {showResults && results.length !== 0 && (
+        {showResults && results.length !== 0 && userInteracted && (
           <div className="absolute left-0 right-0 top-11 z-50 max-h-44 overflow-y-scroll rounded-xl border border-gray-300 bg-white">
             {results.map((result, index) => (
               <div
