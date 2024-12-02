@@ -15,8 +15,8 @@ export default function NavBar() {
             <Link href={"/"}>
               <Image src={Logo} alt="MakeMyCV" />
             </Link>
-            <Button>
-              <Link href={"/begin"}>Create your CV</Link>
+            <Button asChild>
+              <Link href={"/create"}>Create your CV</Link>
             </Button>
           </div>
         </div>

@@ -38,7 +38,7 @@ export default async function Home() {
                 className="flex h-12 w-full items-center text-center max-md:max-w-96 md:max-xl:h-16 xl:max-w-fit"
                 asChild
               >
-                <Link href={"/begin"}>Start creating your CV now</Link>
+                <Link href={"/create"}>Start creating your CV now</Link>
               </Button>
             </div>
           </div>

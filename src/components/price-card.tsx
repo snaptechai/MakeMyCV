@@ -20,16 +20,12 @@ export default async function PriceCard() {
         <h2 className="font-light">Wondering about pricing?</h2>
         <h2 className="mt-3 flex flex-col lg:flex-row">
           It just starts from
-          <span className="text-orange-400 line-through lg:ml-3">
-            Rs. 1499/=
-          </span>
+          <span className="text-orange-400 line-through lg:ml-3">Rs. 1499/=</span>
           <span className="text-4xl font-bold lg:ml-5">
             Rs.{priceData.length !== 0 && priceData[0].lowestPrice}/=
           </span>
         </h2>
-        <p className="text-sm">
-          *The price structure builds with your experience.
-        </p>
+        <p className="text-sm">*The price structure builds with your experience.</p>
       </div>
       <div className="m-5">
         <Button
@@ -37,7 +33,7 @@ export default async function PriceCard() {
           className="bg-yellow-500 px-12 py-7 text-black hover:bg-yellow-500"
           asChild
         >
-          <Link href={"/begin"}>Get Started</Link>
+          <Link href={"/create"}>Get Started</Link>
         </Button>
       </div>
     </div>

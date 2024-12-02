@@ -1,11 +1,7 @@
 import React from "react";
 import Footer from "@/components/footer";
 
-export default function BeginLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function CreateLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <main className="min-h-screen">{children}</main>
