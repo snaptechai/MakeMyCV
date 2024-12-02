@@ -46,7 +46,7 @@ export default function ReviewDetails() {
             <Separator />
             <div className="grid items-start md:grid-cols-3">
               <div>
-                <h3>Employment history</h3>
+                <h3>Employment History</h3>
                 <span className="text-sm text-slate-600">
                   Show your relevant experiences within last 10 years.
                 </span>
@@ -177,7 +177,7 @@ export default function ReviewDetails() {
             <Separator />
             <div className="grid items-start md:grid-cols-3">
               <div>
-                <h3>Achievement / Awards</h3>
+                <h3>Achievements / Awards</h3>
                 <span className="text-sm text-slate-600">If any</span>
               </div>
               <div className="w-full space-y-8 max-md:mt-2 md:col-span-2">
@@ -264,7 +264,7 @@ export default function ReviewDetails() {
             <Separator />
             <div className="grid items-start md:grid-cols-3">
               <div>
-                <h3>Publication</h3>
+                <h3>Publications</h3>
                 <span className="text-sm text-slate-600">If any link</span>
               </div>
               <div className="w-full space-y-8 max-md:mt-2 md:col-span-2">

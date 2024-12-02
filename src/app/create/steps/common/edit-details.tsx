@@ -360,11 +360,11 @@ export default function EditDetails() {
 
             <Separator />
 
-            {/* Employement history */}
+            {/* Employment History */}
 
             <div className="grid items-start md:grid-cols-3">
               <div>
-                <h3>Employement history</h3>
+                <h3>Employment History</h3>
                 <span className="text-sm text-slate-600">
                   Show your relevant experiences within last 10 years.
                 </span>
@@ -629,11 +629,11 @@ export default function EditDetails() {
 
             <Separator />
 
-            {/* Achivement / Awards */}
+            {/* Achievements/Awards */}
 
             <div className="grid items-start md:grid-cols-3">
               <div>
-                <h3>Achivement / Awards</h3>
+                <h3>Achievements / Awards</h3>
                 <span className="text-sm text-slate-600">If any</span>
               </div>
               <div className="w-full max-md:mt-2 md:col-span-2">
@@ -644,7 +644,7 @@ export default function EditDetails() {
                       name={`achievements.${index}.name`}
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Name of Achivement / award</FormLabel>
+                          <FormLabel>Name of achievements/award</FormLabel>
                           <FormControl>
                             <Input {...field} placeholder="e.g. FinTech" />
                           </FormControl>
@@ -684,7 +684,7 @@ export default function EditDetails() {
                         onClick={() => removeAchievement(index)}
                       >
                         <TrashIcon size={16} className="mr-2" />
-                        Remove Achivement
+                        Remove Achievement
                       </Button>
                     </div>
                   </div>
@@ -696,7 +696,7 @@ export default function EditDetails() {
                   onClick={addNewAchievement}
                 >
                   <PlusIcon size={16} className="mr-2" />
-                  Add Achivement
+                  Add Achievement
                 </Button>
               </div>
             </div>
@@ -797,7 +797,7 @@ export default function EditDetails() {
 
             <div className="grid items-start md:grid-cols-3">
               <div>
-                <h3>Publication</h3>
+                <h3>Publications</h3>
                 <span className="text-sm text-slate-600">If any link</span>
               </div>
               <div className="w-full max-md:mt-2 md:col-span-2">
