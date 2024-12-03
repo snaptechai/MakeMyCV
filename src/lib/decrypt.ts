@@ -6,7 +6,8 @@ export const decryptOrderId = async (param: string) => {
   }
   let decodedArray;
   try {
-    decodedArray = atob(param).split("_");
+    const urlDecoded = decodeURIComponent(param);
+    decodedArray = atob(urlDecoded).split("_");
   } catch (e) {
     notFound();
   }
